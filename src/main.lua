@@ -5,24 +5,29 @@ local function dir_exists(path)
     return result == true or result == 0
 end
 
-local cmd = require("cmd")
-local sh = "> "
-local c = 'y'
+local function dir_check()
+    if not dir_exists(new.BDIR) then
+        print("needed dir(s) not found")
+        io.write("create? (y/n): ")
+        local c = io.read()
 
-print("but backup util")
-
-if not dir_exists(new.BDIR) then
-    print("needed dir(s) not found")
-    io.write("create? (y/n): ")
-    c = io.read()
-
-    if c == "y" then
-        os.execute("mkdir -p '" .. new.BDIR .. "'")
-    else
-        print("exiting")
-        return
+        if c == 'y' then
+            os.execute("mkdir -p '" .. new.BDIR .. "'")
+        elseif c == 'n' then
+            print("exiting")
+        else
+            print("err: write \'y\' or \'n\' in lowercase")
+            dir_check()
+            return
+        end
     end
 end
+
+local cmd = require("cmd")
+local sh = "> "
+
+print("but backup util")
+dir_check()
 
 io.write(sh)
 local input = io.read()
