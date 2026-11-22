@@ -14,10 +14,12 @@ function new.run()
 
     if result ~= true and result ~= 0 then
         print("directory not found")
+        return
     end
 
+    local dirname = dir:match("([^/]+)/?$")
     local date = os.date("%Y-%m-%d_%H-%M-%S")
-    local dest = new.BDIR .. date
+    local dest = new.BDIR .. dirname .. " " .. date
 
     local status = os.execute("cp -R '" .. dir .. "' '" .. dest .. "'")
 
