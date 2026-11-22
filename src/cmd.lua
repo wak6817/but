@@ -11,7 +11,7 @@ function cmd.run(input)
     elseif input == "del" then print("go to ~/but/backups and delete a backup") -- TODO: Make this a selection menu
     elseif input == "list" then
         print("backups:")
-        os.execute("ls -1 ~/but/backups/")
+        os.execute("du -h ~/but/backups/*")
         new_input()
     elseif input == "help" then
         print("commands:")
