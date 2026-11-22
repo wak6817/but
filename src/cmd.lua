@@ -8,7 +8,7 @@ end
 
 function cmd.run(input)
     if input == "new" then require("new").run()
-    elseif input == "del" then
+    elseif input == "del" then print("go to ~/but/backups and delete a backup") -- TODO: Make this a selection menu
     elseif input == "list" then
         print("backups:")
         os.execute("ls -1 ~/but/backups/")
