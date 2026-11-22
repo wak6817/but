@@ -1,0 +1,1 @@
+os.execute("lua -e 'package.path = \"src/?.lua;\" .. package.path' src/main.lua")
