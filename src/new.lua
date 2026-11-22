@@ -14,7 +14,6 @@ function new.run()
 
     if result ~= true and result ~= 0 then
         print("directory not found")
-        return
     end
 
     local date = os.date("%Y-%m-%d_%H-%M-%S")
@@ -25,7 +24,7 @@ function new.run()
     if status == true or status == 0 then
         print("backup is in " .. dest)
     else
-        print("backup failed")
+        print("err: backup failed")
     end
 end
 

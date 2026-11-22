@@ -1,3 +1,4 @@
+local cmd = require "cmd"
 local new = require "new"
 
 local function dir_exists(path)
@@ -23,13 +24,12 @@ local function dir_check()
     end
 end
 
-local cmd = require("cmd")
-local sh = "> "
+SH = "> "
 
 print("but backup util")
 dir_check()
 
-io.write(sh)
+io.write(SH)
 local input = io.read()
 
 cmd.run(input)
