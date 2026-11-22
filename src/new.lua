@@ -19,9 +19,9 @@ function new.run()
 
     local dirname = dir:match("([^/]+)/?$")
     local date = os.date("%Y-%m-%d_%H-%M-%S")
-    local dest = new.BDIR .. dirname .. " " .. date
+    local dest = new.BDIR .. dirname .. " " .. date .. ".zip"
 
-    local status = os.execute("cp -R '" .. dir .. "' '" .. dest .. "'")
+    local status = os.execute("zip -r '" .. dest .. "' '" .. dir .. "'")
 
     if status == true or status == 0 then
         print("backup is in " .. dest)
