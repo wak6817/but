@@ -1,6 +1,6 @@
 local new = {}
 
-new.BDIR = os.getenv("HOME") .. "/but/backups"
+new.BDIR = os.getenv("HOME") .. "/but/backups/"
 
 function new.run()
     io.write("dir to backup: ")
@@ -10,14 +10,23 @@ function new.run()
         return
     end
 
-    if os.execute("test -d '" .. dir .. "'") ~= true
-        and os.execute("test -d '" .. dir .. "'") ~= 0 then
+    local result = os.execute("test -d '" .. dir .. "'")
+
+    if result ~= true and result ~= 0 then
         print("directory not found")
         return
     end
 
-    os.execute("cp -R '" .. dir .. "' '" .. new.BDIR .. "'")
-    print("backup is in " .. new.BDIR)
+    local date = os.date("%Y-%m-%d_%H-%M-%S")
+    local dest = new.BDIR .. date
+
+    local status = os.execute("cp -R '" .. dir .. "' '" .. dest .. "'")
+
+    if status == true or status == 0 then
+        print("backup is in " .. dest)
+    else
+        print("backup failed")
+    end
 end
 
 return new
