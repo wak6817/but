@@ -6,6 +6,12 @@ function cmd.run(input)
     elseif input == "list" then
         print("backups:")
         os.execute("ls -1 ~/but/backups/")
+    elseif input == "help" then
+        print("commands:")
+
+        print("new")
+        print("list")
+        print("help")
     elseif input == "exit" then print("exited")
     else print("err: cmd not found")
     end
