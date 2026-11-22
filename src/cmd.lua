@@ -13,13 +13,6 @@ function cmd.run(input)
         print("backups:")
         os.execute("ls -1 $HOME/but/backups/")
         io.write("backup to delete: ")
-
-        local backup = io.read()
-
-        if backup and backup ~= "" then
-            os.execute("rm -rf \"$HOME/but/backups/" .. backup .. "\"")
-        end
-
         new_input()
     elseif input == "list" then
         print("backups:")
