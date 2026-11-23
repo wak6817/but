@@ -1,7 +1,7 @@
 local cmd = {}
 
 local function new_input()
-    io.write(SH)
+    io.write("> ")
     local input = io.read()
     cmd.run(input)
 end
