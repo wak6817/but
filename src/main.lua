@@ -24,12 +24,10 @@ local function dir_check()
     end
 end
 
-SH = "> "
-
 print("but backup util")
 dir_check()
 
-io.write(SH)
+io.write("> ")
 local input = io.read()
 
 cmd.run(input)
