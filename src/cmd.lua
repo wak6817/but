@@ -17,7 +17,7 @@ function cmd.run(input)
     elseif input == "list" then
         print("backups:")
         os.execute(
-        "for f in \"$HOME\"/but/backups/*; do [ -e \"$f\" ] && du -h -d 0 \"$f\" | awk -F '\\t' '{n=$2; sub(/^.*\\//, \"\", n); print $1, n}'; done")
+            "for f in \"$HOME\"/but/backups/*; do [ -e \"$f\" ] && du -h -d 0 \"$f\" | awk -F '\\t' '{n=$2; sub(/^.*\\//, \"\", n); print $1, n}'; done")
         new_input()
     elseif input == "help" then
         print("commands:")
